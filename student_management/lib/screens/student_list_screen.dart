@@ -48,13 +48,7 @@ class _StudentListScreenState extends State<StudentListScreen> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: Row(
-          children: [
-            const Icon(Icons.person, color: Colors.blue),
-            const SizedBox(width: 8),
-            const Text('Student Details'),
-          ],
-        ),
+        title: const Text('Student Details'),
         content: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
