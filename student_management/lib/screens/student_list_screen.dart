@@ -80,7 +80,7 @@ class _StudentListScreenState extends State<StudentListScreen> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: 20, color: Colors.blue),
+          Icon(icon, size: 20, color: Colors.orange),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -110,7 +110,7 @@ class _StudentListScreenState extends State<StudentListScreen> {
                   margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                   child: ListTile(
                     leading: CircleAvatar(
-                      backgroundColor: Colors.blue,
+                      backgroundColor: Colors.orange,
                       child: Text(s['name'][0], style: const TextStyle(color: Colors.white)),
                     ),
                     title: Text(s['name'], style: const TextStyle(fontWeight: FontWeight.bold)),

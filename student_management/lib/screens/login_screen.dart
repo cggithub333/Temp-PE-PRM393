@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.school, size: 80, color: Colors.blue),
+              const Icon(Icons.school, size: 80, color: Colors.orange),
               const SizedBox(height: 24),
               const Text(
                 'Student Management',
@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           label: const Text('Sign in with Google'),
                           style: ElevatedButton.styleFrom(
                             minimumSize: const Size(double.infinity, 50),
-                            backgroundColor: Colors.blue,
+                            backgroundColor: Colors.orange,
                             foregroundColor: Colors.white,
                           ),
                         ),

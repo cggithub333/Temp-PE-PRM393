@@ -142,7 +142,7 @@ class _StudentFormScreenState extends State<StudentFormScreen> {
                   label: Text(_isEdit ? 'Update Student' : 'Add Student'),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 14),
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Colors.orange,
                     foregroundColor: Colors.white,
                   ),
                 ),
