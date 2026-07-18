@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Center(
               child: Text(widget.userName,
-                  style: const TextStyle(fontSize: 13, color: Colors.grey)),
+                  style: const TextStyle(fontSize: 13, color: Colors.white70)),
             ),
           ),
           IconButton(
