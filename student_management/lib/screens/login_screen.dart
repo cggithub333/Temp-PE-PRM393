@@ -50,49 +50,61 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(32),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.school, size: 80, color: Colors.orange),
-              const SizedBox(height: 24),
-              const Text(
-                'Student Management',
-                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              const Text('PRM393 - PE', style: TextStyle(color: Colors.grey)),
-              const SizedBox(height: 48),
-              _loading
-                  ? const CircularProgressIndicator()
-                  : Column(
-                      children: [
-                        ElevatedButton.icon(
-                          onPressed: _signIn,
-                          icon: const Icon(Icons.login),
-                          label: const Text('Sign in with Google'),
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size(double.infinity, 50),
-                            backgroundColor: Colors.orange,
-                            foregroundColor: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        OutlinedButton.icon(
-                          onPressed: _quickLogin,
-                          icon: const Icon(Icons.bolt),
-                          label: const Text('Quick Login (Test)'),
-                          style: OutlinedButton.styleFrom(
-                            minimumSize: const Size(double.infinity, 50),
-                            foregroundColor: Colors.orange,
-                            side: const BorderSide(color: Colors.orange),
-                          ),
-                        ),
-                      ],
-                    ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFFFFFDF0), // cream
+              Color(0xFFFFF3E0), // very light orange
             ],
+          ),
+        ),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(32),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.school, size: 80, color: Colors.orange),
+                const SizedBox(height: 24),
+                const Text(
+                  'Student Management',
+                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                const Text('PRM393 - PE', style: TextStyle(color: Colors.grey)),
+                const SizedBox(height: 48),
+                _loading
+                    ? const CircularProgressIndicator()
+                    : Column(
+                        children: [
+                          ElevatedButton.icon(
+                            onPressed: _signIn,
+                            icon: const Icon(Icons.login),
+                            label: const Text('Sign in with Google'),
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: const Size(double.infinity, 50),
+                              backgroundColor: Colors.orange,
+                              foregroundColor: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          OutlinedButton.icon(
+                            onPressed: _quickLogin,
+                            icon: const Icon(Icons.bolt),
+                            label: const Text('Quick Login (Test)'),
+                            style: OutlinedButton.styleFrom(
+                              minimumSize: const Size(double.infinity, 50),
+                              foregroundColor: Colors.orange,
+                              side: const BorderSide(color: Colors.orange),
+                            ),
+                          ),
+                        ],
+                      ),
+              ],
+            ),
           ),
         ),
       ),
