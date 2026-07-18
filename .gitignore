@@ -8,3 +8,8 @@
 
 # Logs
 *.log
+
+# Environment variables
+.env
+*.env
+
