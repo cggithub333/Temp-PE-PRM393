@@ -10,7 +10,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
+    clientId: '1077804304856-e8nqm8rgr3f2uoh064c312lle8j0ud68.apps.googleusercontent.com',
+  );
   bool _loading = false;
 
   Future<void> _signIn() async {
