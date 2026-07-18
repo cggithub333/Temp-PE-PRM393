@@ -11,7 +11,7 @@
         <!-- Google Maps API Key - Replace with your own key from Google Cloud Console -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAB2LUg-ByBxiQ9mW9o7G8dUit9_RYrwe8"/>
+            android:value="AIzaSyAPrh5c2Pz-UZC8OQ0Ojh-J2XlP3JhkQ64"/>
 
         <activity
             android:name=".MainActivity"
