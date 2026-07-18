@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Student Management',
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,

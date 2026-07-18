@@ -44,6 +44,64 @@ class _StudentListScreenState extends State<StudentListScreen> {
     }
   }
 
+  void _showStudentDetails(Map<String, dynamic> s) {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: Row(
+          children: [
+            const Icon(Icons.person, color: Colors.blue),
+            const SizedBox(width: 8),
+            const Text('Student Details'),
+          ],
+        ),
+        content: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _detailRow(Icons.badge, 'Name', s['name']),
+              _detailRow(Icons.book, 'Major', s['nameMajor'] ?? 'N/A'),
+              _detailRow(Icons.email, 'Email', s['email']),
+              _detailRow(Icons.phone, 'Phone', s['Phone']),
+              _detailRow(Icons.wc, 'Gender', s['gender']),
+              _detailRow(Icons.calendar_today, 'DOB', s['date']),
+              _detailRow(Icons.location_on, 'Address', s['Address']),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Close'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _detailRow(IconData icon, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, size: 20, color: Colors.blue),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(label, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                Text(value, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,25 +120,19 @@ class _StudentListScreenState extends State<StudentListScreen> {
                       child: Text(s['name'][0], style: const TextStyle(color: Colors.white)),
                     ),
                     title: Text(s['name'], style: const TextStyle(fontWeight: FontWeight.bold)),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Major: ${s['nameMajor'] ?? 'N/A'}'),
-                        Text('Email: ${s['email']}'),
-                        Text('Phone: ${s['Phone']}'),
-                        Text('Gender: ${s['gender']} | DOB: ${s['date']}'),
-                        Text('Address: ${s['Address']}'),
-                      ],
-                    ),
-                    isThreeLine: true,
+                    subtitle: Text('Major: ${s['nameMajor'] ?? 'N/A'}'),
+                    onTap: () => _showStudentDetails(s),
                     trailing: PopupMenuButton(
                       itemBuilder: (_) => [
+                        const PopupMenuItem(value: 'details', child: Row(children: [Icon(Icons.info, size: 18), SizedBox(width: 8), Text('Details')])),
                         const PopupMenuItem(value: 'edit', child: Row(children: [Icon(Icons.edit, size: 18), SizedBox(width: 8), Text('Edit')])),
                         const PopupMenuItem(value: 'map', child: Row(children: [Icon(Icons.map, size: 18), SizedBox(width: 8), Text('View on Map')])),
                         const PopupMenuItem(value: 'delete', child: Row(children: [Icon(Icons.delete, size: 18, color: Colors.red), SizedBox(width: 8), Text('Delete', style: TextStyle(color: Colors.red))])),
                       ],
                       onSelected: (value) async {
-                        if (value == 'edit') {
+                        if (value == 'details') {
+                          _showStudentDetails(s);
+                        } else if (value == 'edit') {
                           final student = Student.fromMap(s);
                           await Navigator.push(context, MaterialPageRoute(builder: (_) => StudentFormScreen(student: student)));
                           _loadStudents();
